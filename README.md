@@ -1,12 +1,24 @@
-# 🏡 Exploratory Data Analysis de Alojamientos
+# Análisis de Datos Exploratorio (EDA) | Listados de AirBnB en NY (2024)
 
-Este proyecto realiza un **análisis exploratorio de datos (EDA)** sobre un conjunto de datos de alojamientos (Airbnb-style), aplicando técnicas de limpieza, visualización y correlación entre variables clave.
+Este proyecto realiza un **análisis exploratorio de datos (EDA)** sobre los AirBnB de Nueva York, explorando diferentes patrones, aplicando técnicas de limpieza, visualización y correlación para obtener insights claves sobre la oferta y demanda en la plataforma.
 
 ---
 
-## 📁 Dataset
+## Objetivo del Análisis
+El objetivo de este análisis es reponder a diferentes preguntas sobre el mercado de AirBnB en Nueva York:
 
-El dataset incluye variables como:
+- ¿Cómo se distribuyen los precios de los alojamientos en distintos vecindarios?  
+- ¿Existe una relación entre disponibilidad y número de reseñas?  
+- ¿Cuáles son los factores que más influyen en el precio de los listados?  
+- ¿Cómo varían los tipos de habitaciones en términos de ubicación y demanda?  
+
+Este análisis es relevante porque permite comprender mejor la oferta y demanda en la plataforma, ofreciendo información valiosa para huéspedes que buscan alojamientos y anfitriones que desean optimizar sus precios.
+
+---
+
+## Dataset ([New York Airbnb Open Data 2024](https://www.kaggle.com/datasets/vrindakallu/new-york-dataset))
+
+El dataset contiene 20.770 filas y 22 columnas, incluyendo variables como:
 
 - `latitude` y `longitude`: ubicación geográfica del alojamiento
 - `price`: precio por noche
@@ -18,44 +30,93 @@ El dataset incluye variables como:
 
 ---
 
-## ⚙️ Herramientas utilizadas
+## Herramientas utilizadas
 
-- Python (Pandas, NumPy)
-- Visualización: Matplotlib, Seaborn
+- Python (Pandas - NumPy - Matplotlib - Seaborn)
 - Jupyter Notebook
 
 ---
+## 🔬 Pasos del Análisis  
 
-## 🧹 Limpieza de Datos
+### 🧼 1️⃣ Limpieza de Datos  
+Antes de realizar el análisis, se aplicaron técnicas de limpieza para garantizar la calidad de los datos:
 
-- Eliminación de valores nulos en columnas críticas (`reviews_per_month`, `beds`)
-- Conversión de tipos de datos (por ejemplo, fechas si aplicara)
-- Detección y eliminación de *outliers* en columnas como `price` y `minimum_nights` usando IQR
-
----
-
-## 📊 Análisis y Visualizaciones
-
-1. **Distribución del precio**
-   - Gráfico de histograma revela fuerte sesgo a la derecha.
-   - Se aplicó log-transform para visualizar mejor.
-
-2. **Scatter Plot: Precio vs Latitude / Longitude**
-   - Permite observar si hay zonas geográficas con mayor concentración de precios altos.
-   - Algunas regiones muestran precios desproporcionadamente altos → *potenciales outliers*.
-
-3. **Mapa de calor de correlaciones**
-   - Matriz de correlación entre variables numéricas.
-   - Revela una correlación moderada entre:
-     - `number_of_reviews` y `reviews_per_month` (`r ≈ 0.63`)
-   - Las demás correlaciones son bajas o nulas (|r| < 0.1).
-
-4. **Boxplots para detectar outliers**
-   - `price` y `minimum_nights` tienen valores extremos que fueron filtrados.
+- **Eliminación de valores nulos y duplicados** para reducir ruido en el dataset.  
+- **Conversión de tipos de datos** para asegurar consistencia en valores categóricos y numéricos.  
+- **Detección de outliers** en `price`, utilizando el método del **IQR** para excluir valores extremos.  
 
 ---
 
-## 📌 Conclusiones
+### 📊 2️⃣ Exploración de Datos (EDA)  
+Para comprender la estructura del dataset, se analizaron estadísticas descriptivas y tendencias clave.  
+
+- **Distribución de precios** para identificar rangos predominantes y sesgos en los datos.  
+- **Patrones de disponibilidad** para entender cuántos días al año los alojamientos están activos.  
+- **Número de reseñas** para evaluar la interacción y demanda de los listados.  
+
+Estos análisis previos permitieron detectar relaciones clave antes de la fase de visualización.  
+
+---
+
+### 🎨 3️⃣ Visualizaciones  
+
+#### 📉 **Distribución de Precios**  
+- **Histograma con KDE**  
+  📍 Alta concentración de listados en rangos de precios bajos.  
+  📍 Distribución sesgada positivamente, con una minoría de listados caros.  
+- **Boxplot**  
+  📍 Muestra la dispersión y presencia de valores atípicos.  
+  📍 La mediana confirma que la mayoría de los precios son accesibles.  
+- **Violin Plot**  
+  📍 Refleja la densidad y distribución de los precios, confirmando la existencia de una minoría con precios elevados.  
+
+---
+
+#### 📅 **Distribución de Disponibilidad**  
+- **Histograma con KDE**  
+  📍 Patrón bimodal: muchos alojamientos tienen baja disponibilidad, mientras que otros están activos todo el año.  
+- **Boxplot**  
+  📍 Resalta la variabilidad en la cantidad de días disponibles.  
+- **Violin Plot**  
+  📍 Evidencia alta concentración en valores bajos y una cola extendida en disponibilidad completa.  
+
+---
+
+### 🔗 **Análisis Multivariado**  
+
+#### 🏙️ **Precio vs. Vecindario por Tipo de Habitación**  
+- Se observa que **los precios varían significativamente según el vecindario**.  
+- **Los alojamientos enteros tienden a ser más costosos**, mientras que las habitaciones privadas y compartidas presentan precios más bajos.  
+- En **vecindarios premium**, los precios tienden a ser más elevados.  
+
+---
+
+#### ⭐ **Precio vs. Número de Reseñas por Grupo de Vecindario**  
+- **Mayor cantidad de reseñas está asociada con precios más bajos**, lo que sugiere que alojamientos accesibles generan más interacción.  
+- **Los listados caros con muchas reseñas pueden ser alojamientos premium** con alta demanda.  
+
+---
+
+#### 🌍 **Distribución Geográfica por Tipo de Habitación**  
+- Se identifican **zonas con alta concentración de listados**.  
+- **Las habitaciones privadas y compartidas predominan en zonas accesibles**, mientras que los alojamientos enteros están más presentes en vecindarios exclusivos.  
+
+---
+
+#### 🔥 **Heatmap de Correlación**  
+- **El precio muestra poca correlación con la mayoría de las variables**, indicando que el costo de los listados depende de múltiples factores externos.  
+- **La disponibilidad se relaciona con el número de reseñas**, lo que sugiere que alojamientos activos generan más interacción con huéspedes.  
+
+---
+
+#### 📈 **Pairplot: Relaciones Bivariadas**  
+- **Distribución de precios, noches mínimas, reseñas y disponibilidad según tipo de habitación**.  
+- **Los alojamientos con precios elevados muestran menos reseñas**, indicando posible menor rotación de huéspedes.  
+
+---
+---
+
+## Conclusiones
 
 - La mayoría de los alojamientos son de bajo precio, pero existen algunos valores atípicos que elevan el promedio.
 - No hay correlación fuerte entre `price` y variables como `beds` o `availability_365`.
@@ -64,7 +125,7 @@ El dataset incluye variables como:
 
 ---
 
-## 🚀 Próximos pasos
+## Próximos pasos
 
 - Crear un modelo de predicción de precios con regresión
 - Desarrollar un dashboard interactivo con Tableau o Power BI
