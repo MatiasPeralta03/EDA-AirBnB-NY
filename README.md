@@ -36,9 +36,9 @@ El dataset contiene 20.770 filas y 22 columnas, incluyendo variables como:
 - Jupyter Notebook
 
 ---
-## 🔬 Pasos del Análisis  
+## Pasos del Análisis  
 
-### 🧼 1️⃣ Limpieza de Datos  
+### Limpieza de Datos  
 Antes de realizar el análisis, se aplicaron técnicas de limpieza para garantizar la calidad de los datos:
 
 - **Eliminación de valores nulos y duplicados** para reducir ruido en el dataset.  
@@ -47,7 +47,7 @@ Antes de realizar el análisis, se aplicaron técnicas de limpieza para garantiz
 
 ---
 
-### 📊 2️⃣ Exploración de Datos (EDA)  
+### Exploración de Datos (EDA)  
 Para comprender la estructura del dataset, se analizaron estadísticas descriptivas y tendencias clave.  
 
 - **Distribución de precios** para identificar rangos predominantes y sesgos en los datos.  
@@ -58,58 +58,58 @@ Estos análisis previos permitieron detectar relaciones clave antes de la fase d
 
 ---
 
-### 🎨 3️⃣ Visualizaciones  
+### Visualizaciones  
 
-#### 📉 **Distribución de Precios**  
+#### **Distribución de Precios**  
 - **Histograma con KDE**  
-  📍 Alta concentración de listados en rangos de precios bajos.  
-  📍 Distribución sesgada positivamente, con una minoría de listados caros.  
+  - Alta concentración de listados en rangos de precios bajos.  
+  - Distribución sesgada positivamente, con una minoría de listados caros.  
 - **Boxplot**  
-  📍 Muestra la dispersión y presencia de valores atípicos.  
-  📍 La mediana confirma que la mayoría de los precios son accesibles.  
+  - Muestra la dispersión y presencia de valores atípicos.  
+  - La mediana confirma que la mayoría de los precios son accesibles.  
 - **Violin Plot**  
-  📍 Refleja la densidad y distribución de los precios, confirmando la existencia de una minoría con precios elevados.  
+  - Refleja la densidad y distribución de los precios, confirmando la existencia de una minoría con precios elevados.  
 
 ---
 
-#### 📅 **Distribución de Disponibilidad**  
+#### **Distribución de Disponibilidad**  
 - **Histograma con KDE**  
-  📍 Patrón bimodal: muchos alojamientos tienen baja disponibilidad, mientras que otros están activos todo el año.  
+  - Patrón bimodal: muchos alojamientos tienen baja disponibilidad, mientras que otros están activos todo el año.  
 - **Boxplot**  
-  📍 Resalta la variabilidad en la cantidad de días disponibles.  
+  - Resalta la variabilidad en la cantidad de días disponibles.  
 - **Violin Plot**  
-  📍 Evidencia alta concentración en valores bajos y una cola extendida en disponibilidad completa.  
+  - Evidencia alta concentración en valores bajos y una cola extendida en disponibilidad completa.  
 
 ---
 
-### 🔗 **Análisis Multivariado**  
+### **Análisis Multivariado**  
 
-#### 🏙️ **Precio vs. Vecindario por Tipo de Habitación**  
+#### **Precio vs. Vecindario por Tipo de Habitación**  
 - Se observa que **los precios varían significativamente según el vecindario**.  
 - **Los alojamientos enteros tienden a ser más costosos**, mientras que las habitaciones privadas y compartidas presentan precios más bajos.  
 - En **vecindarios premium**, los precios tienden a ser más elevados.  
 
 ---
 
-#### ⭐ **Precio vs. Número de Reseñas por Grupo de Vecindario**  
+#### **Precio vs. Número de Reseñas por Grupo de Vecindario**  
 - **Mayor cantidad de reseñas está asociada con precios más bajos**, lo que sugiere que alojamientos accesibles generan más interacción.  
 - **Los listados caros con muchas reseñas pueden ser alojamientos premium** con alta demanda.  
 
 ---
 
-#### 🌍 **Distribución Geográfica por Tipo de Habitación**  
+#### **Distribución Geográfica por Tipo de Habitación**  
 - Se identifican **zonas con alta concentración de listados**.  
 - **Las habitaciones privadas y compartidas predominan en zonas accesibles**, mientras que los alojamientos enteros están más presentes en vecindarios exclusivos.  
 
 ---
 
-#### 🔥 **Heatmap de Correlación**  
+#### **Heatmap de Correlación**  
 - **El precio muestra poca correlación con la mayoría de las variables**, indicando que el costo de los listados depende de múltiples factores externos.  
 - **La disponibilidad se relaciona con el número de reseñas**, lo que sugiere que alojamientos activos generan más interacción con huéspedes.  
 
 ---
 
-#### 📈 **Pairplot: Relaciones Bivariadas**  
+#### **Pairplot: Relaciones Bivariadas**  
 - **Distribución de precios, noches mínimas, reseñas y disponibilidad según tipo de habitación**.  
 - **Los alojamientos con precios elevados muestran menos reseñas**, indicando posible menor rotación de huéspedes.  
 
